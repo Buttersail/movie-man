@@ -1,13 +1,20 @@
 # Movie-Man (Group 5)
 
-## TBD
+## Movie Man
 
 ## Project Description
 Project that uses an outside API to get information on movie/tv-show releases etc.
-We then use this information to host some information (users) and track their progress.
+We then use this data to host information eg. users and their progress or ratings.
+Oversæt til dansk
 
 ## Group Contract
-Add a short informal Group Contract, agreed upon by ALL MEMBERS in the group
+Du må ikke acceptere dit eget pull request, skal blive gjort af en anden gruppemedlem, dette gruppemedlem sletter også tilhørende branch.
+Sørg for at du ikke pusher noget som ikke virker. Test lokalt inden du gør dette.
+Minimum et commit om dagen.
+Der bliver kun arbejdet på den feature, som man er blevet sat til.
+Der bliver holdt møde de dage vi har programmering/teknologi. Ikke nødvendigvis fysisk!
+ - Mødetid aftales sensest 24 timer inden.
+ - I tilfælde af problemer ved at møde op, så gives der besked.
 
 ## Branching Strategy 
 Feature Branching
@@ -31,6 +38,3 @@ Frederik Wandall Von Benzon
 
 ### Member-4
 Haci Murat Fatih Memis - Buttersail
-
-### Member-5
-Lars Mortensen
