@@ -3,9 +3,9 @@
 ## Movie Man
 
 ## Project Description
-Project that uses an outside API to get information on movie/tv-show releases etc.
-We then use this data to host information eg. users and their progress or ratings.
-Oversæt til dansk
+Projekt der bruger et ekstern API til at hente data på film eller tv serier. Dette kan bl.a. være hvornår nye episoder kommer ud m.m.
+Vi bruger så det data til at knytte dem til forskellige brugere der bliver oprettet, så de kan angive hvor langt de er nået i en serie og evt. give filmen/serien
+en rating.
 
 ## Group Contract
 Du må ikke acceptere dit eget pull request, skal blive gjort af en anden gruppemedlem, dette gruppemedlem sletter også tilhørende branch.
@@ -31,10 +31,10 @@ You should all add your GitHub usename in parenthesis next to your name, so I kn
 Mark Kaplan Hansen - BenAtic-KEA
 
 ### Member-2
-Simon Roswall Jørgensen
+Simon Roswall Jørgensen - RandomHat
 
 ### Member-3
-Frederik Wandall Von Benzon
+Frederik Wandall Von Benzon - FrederikWVB
 
 ### Member-4
 Haci Murat Fatih Memis - Buttersail
