@@ -21,7 +21,7 @@ Initially, Each of you should push a commit with just your name
 You should all add your GitHub usename in parenthesis next to your name, so I know who is who, when I check commit messages
 
 ### Member-1
-Mark Kaplan Hansen
+Mark Kaplan Hansen - BenAtic-KEA
 
 ### Member-2
 Simon Roswall Jørgensen
