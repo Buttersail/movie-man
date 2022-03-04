@@ -30,4 +30,4 @@ Simon Roswall Jørgensen
 Frederik Wandall Von Benzon
 
 ### Member-4
-Haci Murat Fatih Memis
+Haci Murat Fatih Memis - Buttersail
