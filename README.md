@@ -41,3 +41,9 @@ Frederik Wandall Von Benzon - FrederikWVB
 
 ### Member-4
 Haci Murat Fatih Memis - Buttersail
+
+## Minisprint-1
+- Opbygge skelet/fundament for backend 
+- Visuel præsentation til review i form af Postman requests 
+- EER over vores system 
+- Generelt regner vi med at skulle lave en bro mellem vores front end og deres api, ved at vi kalder vores egne endpoints, der så forwarder forespørgslen til deres api efter den har checket om vi har information selv i vores db. 
