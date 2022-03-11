@@ -2,6 +2,9 @@
 
 ## Movie Man
 
+## Deployment Status
+[![Build and deploy JAR app to Azure Web App - movie-man](https://github.com/Buttersail/movie-man/actions/workflows/main_movie-man.yml/badge.svg)](https://github.com/Buttersail/movie-man/actions/workflows/main_movie-man.yml)
+
 ## Project Description
 Projekt der bruger et ekstern API til at hente data på film eller tv serier. Dette kan bl.a. være hvornår nye episoder kommer ud m.m.
 Vi bruger så det data til at knytte dem til forskellige brugere der bliver oprettet, så de kan angive hvor langt de er nået i en serie og evt. give filmen/serien
