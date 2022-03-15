@@ -1,4 +1,4 @@
-package com.keadat21v2.movieman.repositories;
+package dk.keadat21v2.movieman.repositories;
 
 //import org.springframework.data.jpa.repository.JpaRepository;
 
