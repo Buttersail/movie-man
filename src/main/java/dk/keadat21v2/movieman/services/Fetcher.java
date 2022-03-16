@@ -1,4 +1,4 @@
-package com.keadat21v2.movieman.services;
+package dk.keadat21v2.movieman.services;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.*;
