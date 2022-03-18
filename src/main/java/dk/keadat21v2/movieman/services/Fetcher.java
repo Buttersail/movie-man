@@ -23,7 +23,7 @@ public class Fetcher {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(new URI(url))
                 .GET()
-                .headers("Content-Type", "application/json", "Accept", "application/json", "Authorization", "Bearer " + api_token)
+                .headers("Content-Type", "application/json;charset=UTF-8", "Authorization", "Bearer " + api_token)
                 .build();
 
         client.sendAsync(request, BodyHandlers.ofString())

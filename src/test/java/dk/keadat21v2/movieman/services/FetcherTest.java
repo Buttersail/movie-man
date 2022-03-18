@@ -13,12 +13,12 @@ class FetcherTest {
 
     static Fetcher fetcher;
 
-    @BeforeAll
+    //@BeforeAll
     static void setup(){
         fetcher = new Fetcher("https://api.themoviedb.org/3/movie/503");
     }
 
-    @Test
+    //@Test
     void fetch() {
         try {
             fetcher.fetch();
@@ -26,6 +26,5 @@ class FetcherTest {
         } catch (URISyntaxException err){
             System.out.println(err);
         }
-
     }
 }
