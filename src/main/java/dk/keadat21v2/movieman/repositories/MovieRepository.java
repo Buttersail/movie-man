@@ -1,8 +1,8 @@
 package dk.keadat21v2.movieman.repositories;
 
-//import org.springframework.data.jpa.repository.JpaRepository;
+import dk.keadat21v2.movieman.entitites.Movie;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-//TODO change JPA parameter to Movie.
-/*public interface MovieRepository extends JpaRepository<Integer, Integer> {
+public interface MovieRepository extends JpaRepository<Movie, Integer> {
 }
- */
+
