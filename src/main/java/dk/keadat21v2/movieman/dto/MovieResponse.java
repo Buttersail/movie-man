@@ -1,14 +1,18 @@
 package dk.keadat21v2.movieman.dto;
 
 import dk.keadat21v2.movieman.entitites.Genre;
+import dk.keadat21v2.movieman.entitites.Movie;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 public class MovieResponse {
 
@@ -45,5 +49,17 @@ public class MovieResponse {
         this.releaseDate = releaseDate;
         this.status = status;
         this.voteAverage = voteAverage;
+    }
+
+    //TODO genre er et set i movies og en arraylist i Response
+    public MovieResponse(Movie movie){
+        this.title = movie.getTitle();
+        this.overview = movie.getOverview();
+        this.runtime = movie.getRuntime();
+        this.posterPath = movie.getPosterPath();
+        this.releaseDate = movie.getReleaseDate();
+        this.status = movie.getStatus();
+        this.voteAverage = movie.getVoteAverage();
+        //this.genres = movie.getGenres().toArray();
     }
 }
