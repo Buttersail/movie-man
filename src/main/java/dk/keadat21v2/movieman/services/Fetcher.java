@@ -1,16 +1,19 @@
 package dk.keadat21v2.movieman.services;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.*;
 import java.net.http.HttpResponse.BodyHandlers;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 public class Fetcher {
     private String url;
     private String api_token;
-    private List<String> fetchedData = new ArrayList<>();
+    private String json;
+    private ObjectMapper mapper = new ObjectMapper();
 
     Fetcher(String url){
         this.url = url;
@@ -27,11 +30,11 @@ public class Fetcher {
 
         client.sendAsync(request, BodyHandlers.ofString())
                 .thenApply(HttpResponse::body)
-                .thenAccept(fetchedData::add)
+                .thenAccept((data) -> json = data)
                 .join();
-    }
+        }
 
-    public List<String> getFetchedData() {
-        return fetchedData;
+    public Map<String, Object> getFetchedData() throws JsonProcessingException{
+        return mapper.readValue(json, Map.class);
     }
 }
