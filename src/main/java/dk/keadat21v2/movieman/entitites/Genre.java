@@ -17,6 +17,11 @@ import java.util.Set;
 @Entity
 public class Genre {
 
+    public Genre(int id, String genre) {
+        this.id = id;
+        this.genre = genre;
+    }
+
     @Id
     int id;
 
