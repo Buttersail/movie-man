@@ -7,7 +7,6 @@ import java.net.http.HttpResponse.BodyHandlers;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Fetcher {
     private String url;
     private String api_token;
