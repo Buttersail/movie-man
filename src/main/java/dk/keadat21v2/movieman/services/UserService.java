@@ -1,5 +1,6 @@
 package dk.keadat21v2.movieman.services;
 
+import dk.keadat21v2.movieman.dto.UserRequest;
 import dk.keadat21v2.movieman.dto.UserResponse;
 import dk.keadat21v2.movieman.entitites.User;
 import dk.keadat21v2.movieman.repositories.UserRepository;
@@ -21,6 +22,16 @@ public class UserService {
     public UserResponse getUserByUsername(String username) {
         User user = userRepository.findById(username).orElseThrow();
         return new UserResponse(username);
+    }
+
+    public UserResponse addUser(UserRequest body) {
+        if (userRepository.existsById(body.getUsername())) {
+            System.out.println("ERROR, Username is taken");
+        }
+
+        User user = new User(body);
+        user = userRepository.save(user);
+        return new UserResponse(user.getUsername());
     }
 
     public void deleteUser(String username) {

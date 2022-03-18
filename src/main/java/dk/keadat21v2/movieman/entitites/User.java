@@ -1,5 +1,6 @@
 package dk.keadat21v2.movieman.entitites;
 
+import dk.keadat21v2.movieman.dto.UserRequest;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -36,6 +37,10 @@ public class User {
     User(String username, String password){
         this.username = username;
         this.password = pwEncoder.encode(password);
+    }
+
+    public User(UserRequest body) {
+        this(body.getUsername(), body.getPassword());
     }
 
     static PasswordEncoder getPasswordEncoder(){
