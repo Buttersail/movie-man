@@ -2,6 +2,8 @@ package dk.keadat21v2.movieman.services;
 
 import dk.keadat21v2.movieman.dto.MovieResponse;
 import dk.keadat21v2.movieman.repositories.MovieRepository;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
@@ -22,6 +24,13 @@ class MovieServiceTest {
     //@Test
     void fetchMovie() {
         MovieResponse response = movieService.findMovie(503);
+        System.out.println(response);
+        assertNotNull(response);
+    }
+
+    //@Test
+    void searchMovie(){
+        String response = movieService.searchMovie("house", 1);
         System.out.println(response);
         assertNotNull(response);
     }

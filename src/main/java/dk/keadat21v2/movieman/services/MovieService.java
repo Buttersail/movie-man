@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.net.URISyntaxException;
 import java.util.Map;
-import java.util.Set;
 
 @Service
 public class MovieService {
@@ -43,16 +42,20 @@ public class MovieService {
         return null; //TODO When error400 is implemented remove this
     }
 
-    /*
-    public Set<Movie> searchMovie(String query, int pageNumber){
-        try{
-            Fetcher fetcher = new Fetcher("https://api.themoviedb.org/3/search/movie?" +
-                    "language=en-US&query=" + query + "&page=" + pageNumber + "&include_adult=false");
+
+    public String searchMovie(String query, int pageNumber) {
+        try {
+            Fetcher fetcher = new Fetcher("https://api.themoviedb.org/3/search/movie?query=" + query + "&page=" + pageNumber + "&include_adult=false");
 
             fetcher.fetch();
 
-        }
-    }
+            return fetcher.getJson();
 
-     */
+
+        } catch (URISyntaxException err) {
+            System.out.println("Fetch failed due to: " + err);
+            //TODO throw Error400Exeption
+        }
+        return null;
+    }
 }
