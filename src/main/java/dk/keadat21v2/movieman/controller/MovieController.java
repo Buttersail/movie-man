@@ -1,13 +1,11 @@
 package dk.keadat21v2.movieman.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/movies")
-public class movieController {
+public class MovieController {
 
     //TODO autowire når movieservice er oprettet:
     /*
