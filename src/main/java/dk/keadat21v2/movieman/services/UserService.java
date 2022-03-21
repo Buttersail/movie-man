@@ -14,6 +14,10 @@ public class UserService {
 
     UserRepository userRepository;
 
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     public List<UserResponse> getUser() {
         List<User> users = userRepository.findAll();
         return users.stream().map(user -> new UserResponse(user)).collect(Collectors.toList());
