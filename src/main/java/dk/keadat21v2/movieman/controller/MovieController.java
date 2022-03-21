@@ -20,8 +20,8 @@ public class MovieController {
     }
 
     @GetMapping("/search")
-    public String searchMovie(@RequestParam String query, @RequestParam int id){
-        return movieService.searchMovie(query,id);
+    public String searchMovie(@RequestParam String query, @RequestParam int page){
+        return movieService.searchMovie(query,page);
     }
 
     //TODO henter movies ud som MovieResponses genereret af movieService (skal det være alle movies, eller skal det bare være et udvalg af 10 f.eks?)
