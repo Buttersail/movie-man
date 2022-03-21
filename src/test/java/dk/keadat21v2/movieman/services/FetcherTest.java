@@ -1,13 +1,9 @@
 package dk.keadat21v2.movieman.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.net.URISyntaxException;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 class FetcherTest {
@@ -23,7 +19,7 @@ class FetcherTest {
     void fetch() {
         try {
             fetcher.fetch();
-            System.out.println(fetcher.getFetchedData().toString());
+            System.out.println(fetcher.getFetchedMap().toString());
         } catch (URISyntaxException|JsonProcessingException err){
             System.out.println(err);
         }
