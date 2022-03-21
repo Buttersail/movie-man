@@ -16,12 +16,12 @@ public class UserService {
 
     public List<UserResponse> getUser() {
         List<User> users = userRepository.findAll();
-        return users.stream().map(user -> new UserResponse(user.getUsername())).collect(Collectors.toList());
+        return users.stream().map(user -> new UserResponse(user)).collect(Collectors.toList());
     }
 
     public UserResponse getUserByUsername(String username) {
         User user = userRepository.findById(username).orElseThrow();
-        return new UserResponse(username);
+        return new UserResponse(user);
     }
 
     public UserResponse addUser(UserRequest body) {
@@ -31,7 +31,7 @@ public class UserService {
 
         User user = new User(body);
         user = userRepository.save(user);
-        return new UserResponse(user.getUsername());
+        return new UserResponse(user);
     }
 
     public void deleteUser(String username) {
