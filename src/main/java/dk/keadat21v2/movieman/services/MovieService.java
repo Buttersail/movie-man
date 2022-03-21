@@ -18,7 +18,7 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
-    public MovieResponse fetchMovie(Integer movieId){
+    public MovieResponse findMovie(Integer movieId){
         if (movieRepository.existsById(movieId)){
                 return new MovieResponse(movieRepository.getById(movieId));
             }
