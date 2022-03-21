@@ -20,10 +20,6 @@ public class UserController {
         this.userService = userService;
     }
 
-//    @GetMapping
-//    public List<UserResponse> getAllUsers(){
-//        return userService.getUser();
-
     @GetMapping
     public ResponseEntity<List<UserResponse>> getAllUsers() {
         return ResponseEntity.ok(userService.getUser());
