@@ -4,6 +4,7 @@ import dk.keadat21v2.movieman.dto.MovieResponse;
 import dk.keadat21v2.movieman.services.MovieService;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/movies")
 public class MovieController {
