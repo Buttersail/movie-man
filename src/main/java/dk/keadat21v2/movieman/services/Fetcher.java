@@ -34,7 +34,11 @@ public class Fetcher {
                 .join();
         }
 
-    public Map<String, Object> getFetchedData() throws JsonProcessingException{
+    public Map<String, Object> getFetchedMap() throws JsonProcessingException{
         return mapper.readValue(json, Map.class);
+    }
+
+    public String getJson(){
+        return json;
     }
 }
