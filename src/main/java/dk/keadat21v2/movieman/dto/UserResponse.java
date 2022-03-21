@@ -2,6 +2,7 @@ package dk.keadat21v2.movieman.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import dk.keadat21v2.movieman.entitites.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,12 +20,8 @@ public class UserResponse {
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     LocalDateTime created;
 
-    public UserResponse(String username) {
-        this.username = username;
+    public UserResponse(User body) {
+        this.username = body.getUsername();
     }
 
-    public UserResponse(String username, LocalDateTime created) {
-        this.username = username;
-        this.created = created;
-    }
 }
