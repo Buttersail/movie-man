@@ -20,9 +20,8 @@ public class MovieService {
     public MovieResponse findMovie(int movieId){
         if (movieRepository.existsById(movieId)){
             return fetchFromDb(movieId);
-        } else {
-            return fetchFromApi(movieId);
         }
+        return fetchFromApi(movieId);
     }
 
     private MovieResponse fetchFromDb(int movieId){
@@ -55,7 +54,8 @@ public class MovieService {
 
     public String searchMovie(String query, int pageNumber) {
         try {
-            Fetcher fetcher = new Fetcher("https://api.themoviedb.org/3/search/movie?query=" + query + "&page=" + pageNumber + "&include_adult=false");
+            String url = "https://api.themoviedb.org/3/search/movie?query=" + query.replaceAll(" ", "+") + "&page=" + pageNumber + "&include_adult=false";
+            Fetcher fetcher = new Fetcher(url);
 
             fetcher.fetch();
 

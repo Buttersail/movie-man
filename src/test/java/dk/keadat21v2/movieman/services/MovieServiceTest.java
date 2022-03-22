@@ -62,7 +62,7 @@ class MovieServiceTest {
 
     //@Test
     void searchMovie(){
-        String response = movieService.searchMovie("house", 1);
+        String response = movieService.searchMovie("beta house", 1);
         System.out.println(response);
         assertNotNull(response);
     }
