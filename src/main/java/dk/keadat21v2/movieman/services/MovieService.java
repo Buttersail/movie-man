@@ -17,27 +17,36 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
-    public MovieResponse findMovie(Integer movieId){
+    public MovieResponse findMovie(int movieId){
         if (movieRepository.existsById(movieId)){
-                return new MovieResponse(movieRepository.getById(movieId));
-            }
-        else {
-            try {
-                Fetcher fetcher = new Fetcher("https://api.themoviedb.org/3/movie/" + movieId);
-                // call the api
-                fetcher.fetch();
-                // get the json-data as a map of objects.
-                Map<String, Object> map = fetcher.getFetchedMap();
-                // convert to java-object by typecasting values into the constructor.
-                Movie movie = movieRepository.save(new Movie(
-                        (Integer) map.get("id"), (String) map.get("title"), (String) map.get("overview"), (Integer) map.get("runtime"),
-                        (String) map.get("poster_path"), (String) map.get("release_date"), (String) map.get("status"), (Double) map.get("vote_average")
-                ));
-                return new MovieResponse((movie));
-            } catch(URISyntaxException| JsonProcessingException err) {
-                System.out.println("Fetch failed due to: " + err);
-                //TODO throw Error400Exeption
-            }
+            return fetchFromDb(movieId);
+        }
+        return fetchFromApi(movieId);
+    }
+
+    private MovieResponse fetchFromDb(int movieId){
+        return new MovieResponse(movieRepository.getById(movieId));
+    }
+
+    private MovieResponse fetchFromApi(int movieId){
+        try {
+            Fetcher fetcher = new Fetcher("https://api.themoviedb.org/3/movie/" + movieId);
+            // call the api
+            fetcher.fetch();
+            // get the json-data as a map of objects.
+            Map<String, Object> map = fetcher.getFetchedMap();
+            // convert to java-object by typecasting values into the constructor.
+            Movie movie = movieRepository.save(new Movie(
+                    (Integer) map.get("id"), (String) map.get("title"), (String) map.get("overview"), (Integer) map.get("runtime"),
+                    (String) map.get("poster_path"), (String) map.get("release_date"), (String) map.get("status"), (Double) map.get("vote_average")
+            ));
+
+            return new MovieResponse((movie));
+
+        } catch(URISyntaxException| JsonProcessingException err) {
+
+            System.out.println("Fetch failed due to: " + err);
+            //TODO throw Error400Exeption
         }
         return null; //TODO When error400 is implemented remove this
     }
@@ -45,7 +54,8 @@ public class MovieService {
 
     public String searchMovie(String query, int pageNumber) {
         try {
-            Fetcher fetcher = new Fetcher("https://api.themoviedb.org/3/search/movie?query=" + query + "&page=" + pageNumber + "&include_adult=false");
+            String url = "https://api.themoviedb.org/3/search/movie?query=" + query.replaceAll(" ", "+") + "&page=" + pageNumber + "&include_adult=false";
+            Fetcher fetcher = new Fetcher(url);
 
             fetcher.fetch();
 

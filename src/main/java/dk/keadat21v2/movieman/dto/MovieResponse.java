@@ -2,10 +2,7 @@ package dk.keadat21v2.movieman.dto;
 
 import dk.keadat21v2.movieman.entitites.Genre;
 import dk.keadat21v2.movieman.entitites.Movie;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode
 @NoArgsConstructor
 public class MovieResponse {
 
