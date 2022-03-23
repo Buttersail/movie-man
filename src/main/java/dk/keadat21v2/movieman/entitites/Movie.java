@@ -37,10 +37,17 @@ public class Movie {
     @CreationTimestamp
     LocalDateTime created;
 
-
     public void addMovieGenreList(MovieGenreList genre){
         genres.add(genre);
     }
+
+    @OneToMany(mappedBy = "movie", fetch = FetchType.EAGER)
+    private Set<MovieList_Movie> movieList_movies = new HashSet<>();
+
+    public void addToMovieList_Movies(MovieList_Movie movieList_movie){
+        movieList_movies.add(movieList_movie);
+    }
+
 
     public Movie(int id, String title, String overview, int runtime, String posterPath, String releaseDate, String status, double voteAverage) {
         this.id = id;
