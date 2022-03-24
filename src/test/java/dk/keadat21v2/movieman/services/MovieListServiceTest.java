@@ -38,11 +38,23 @@ class MovieListServiceTest {
     }
 
     @Test
-    void addMovieList() {
+    void addMovieListTest() {
         movieListRepository.save(new MovieList("myList",userRepository.getById("Mark")));
 
         assertTrue(movieListRepository.count() > 0);
         assertEquals("myList",movieListRepository.getById(1).getName());
+
+    }
+
+    @Test
+    void getAllMovieListsFromUserTest(){
+        movieListRepository.save(new MovieList("myList1",userRepository.getById("Mark")));
+        movieListRepository.save(new MovieList("myList2",userRepository.getById("Mark")));
+        movieListRepository.save(new MovieList("myList3",userRepository.getById("Mark")));
+
+        assertEquals(3,movieListRepository.findMovieListsByOwnedBy_Username("Mark").size());
+
+        assertEquals("myList2",movieListRepository.findMovieListsByOwnedBy_Username("Mark").get(1).getName());
 
     }
 }
