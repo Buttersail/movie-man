@@ -3,6 +3,9 @@ import dk.keadat21v2.movieman.entitites.MovieList;
 import dk.keadat21v2.movieman.services.MovieListService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Set;
+
 @RestController
 @RequestMapping("api/movielists")
 public class MovieListController {
@@ -12,7 +15,9 @@ public class MovieListController {
     public MovieListController(MovieListService movieListService){
         this.movieListService = movieListService;
     }
-    /*
+
+
+    /**
      add movie to List
      Post Mapping
 
@@ -26,11 +31,13 @@ public class MovieListController {
     return movieListService.addMovieList(body);
     }
 
-    /*
-    Show all movie lists for a user
-    Get Mapping
-     */
-
+    /**
+    * Show all movie lists for a user
+    */
+    @GetMapping("/{username}")
+    public List<MovieList> createMovieList(@PathVariable String username){
+        return movieListService.getMovieLists(username);
+    }
 
     /*
     show movies from one list
