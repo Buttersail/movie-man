@@ -3,13 +3,13 @@ package dk.keadat21v2.movieman.entitites;
 import dk.keadat21v2.movieman.dto.UserRequest;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter @Setter
@@ -29,10 +29,17 @@ public class User {
     @Id
     private String username;
 
-    //Cleartext atm
     //Sizelimit for future encryption with bcrypt
     @Column(nullable = false, length = 72)
     private String password;
+
+    @OneToMany(
+            mappedBy = "ownedBy",
+            fetch = FetchType.EAGER
+    )
+    private Set<MovieList> movieLists = new HashSet<>();
+
+    public void addMovieList(MovieList movieList){movieLists.add(movieList);}
 
     User(String username, String password){
         this.username = username;
