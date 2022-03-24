@@ -32,7 +32,7 @@ public class MovieList {
         movieListMovies.add(movieList);
     }
 
-    MovieList(String name, User user){
+    public MovieList(String name, User user){
         this.name = name;
         this.ownedBy = user;
         ownedBy.addMovieList(this);
