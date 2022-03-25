@@ -2,6 +2,8 @@ package dk.keadat21v2.movieman.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dk.keadat21v2.movieman.error.Client4xxException;
+import org.springframework.http.HttpStatus;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -29,8 +31,12 @@ public class Fetcher {
                 .build();
 
         client.sendAsync(request, BodyHandlers.ofString())
-                .thenApply(HttpResponse::body)
-                .thenAccept((data) -> json = data)
+                .thenApply((response) -> {
+                    if (response.statusCode() != 200){
+                    throw new Client4xxException(response.body(), HttpStatus.valueOf(response.statusCode()));
+                    }
+                    return response.body();
+                }).thenAccept((data) -> json = data)
                 .join();
         }
 
