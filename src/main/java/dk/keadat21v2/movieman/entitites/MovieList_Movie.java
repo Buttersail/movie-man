@@ -23,7 +23,7 @@ public class MovieList_Movie {
     @ManyToOne
     Movie movie;
 
-    MovieList_Movie(MovieList movieList, Movie movie){
+    public MovieList_Movie(MovieList movieList, Movie movie){
         this.movie = movie;
         this.movieList = movieList;
         movie.addToMovieList_Movies(this);
