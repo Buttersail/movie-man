@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -26,7 +27,7 @@ public class MovieList {
             mappedBy = "movieList",
             fetch = FetchType.EAGER
     )
-    Set<MovieList_Movie> movieListMovies;
+    Set<MovieList_Movie> movieListMovies = new HashSet<>();
 
     public void addToMovielist_Movie(MovieList_Movie movieList){
         movieListMovies.add(movieList);
