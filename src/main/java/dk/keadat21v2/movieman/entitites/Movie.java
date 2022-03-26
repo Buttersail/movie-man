@@ -5,10 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -24,7 +21,10 @@ public class Movie {
     int id;
 
     String title;
+
+    @Lob // Overview occasionally contains lots of data, so Lob (-> large Object) was needed
     String overview;
+
     int runtime;
     String posterPath;
     String releaseDate;
