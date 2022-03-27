@@ -23,7 +23,7 @@ Der bliver holdt møde de dage vi har programmering/teknologi. Ikke nødvendigvi
 Feature Branching
 
 ## Link to deployed project
-Back-End for the project [Movie-Man-FrontEnd](https://github.com/FrederikWVB/movie-man-frontend)
+Back-End for the project [Movie-Man-FrontEnd LINK](https://github.com/RandomHat/movie-man-frontend)
 
 ## Who Did What
 Each member must come up with a short description when the **final deadline is reached**.
