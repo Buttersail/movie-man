@@ -25,6 +25,12 @@ public class UserController {
         return ResponseEntity.ok(userService.getUser());
     }
 
+
+    @PostMapping("/login")
+    public boolean loginUser(@RequestBody UserRequest body) {
+        return userService.validateUser(body);
+    }
+
     @GetMapping("/{id}")
     public UserResponse getUser(@PathVariable String id){
         return userService.getUserByUsername(id);

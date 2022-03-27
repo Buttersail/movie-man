@@ -3,6 +3,7 @@ package dk.keadat21v2.movieman.services;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import dk.keadat21v2.movieman.dto.MovieResponse;
 import dk.keadat21v2.movieman.entitites.Movie;
+import dk.keadat21v2.movieman.error.Client4xxException;
 import dk.keadat21v2.movieman.repositories.MovieRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,16 +20,16 @@ public class MovieService {
 
     public MovieResponse findMovie(int movieId){
         if (movieRepository.existsById(movieId)){
-            return fetchFromDb(movieId);
+            return fetchMovieFromDb(movieId);
         }
-        return fetchFromApi(movieId);
+        return fetchMovieFromApi(movieId);
     }
 
-    private MovieResponse fetchFromDb(int movieId){
+    private MovieResponse fetchMovieFromDb(int movieId){
         return new MovieResponse(movieRepository.getById(movieId));
     }
 
-    private MovieResponse fetchFromApi(int movieId){
+    private MovieResponse fetchMovieFromApi(int movieId){
         try {
             Fetcher fetcher = new Fetcher("https://api.themoviedb.org/3/movie/" + movieId);
             // call the api
@@ -44,11 +45,8 @@ public class MovieService {
             return new MovieResponse((movie));
 
         } catch(URISyntaxException| JsonProcessingException err) {
-
-            System.out.println("Fetch failed due to: " + err);
-            //TODO throw Error400Exeption
+            throw new Client4xxException(err.getMessage());
         }
-        return null; //TODO When error400 is implemented remove this
     }
 
 
@@ -63,9 +61,7 @@ public class MovieService {
 
 
         } catch (URISyntaxException err) {
-            System.out.println("Fetch failed due to: " + err);
-            //TODO throw Error400Exeption
+            throw new Client4xxException(err.getMessage());
         }
-        return null;
     }
 }

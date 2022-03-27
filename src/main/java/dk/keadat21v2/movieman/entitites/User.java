@@ -50,7 +50,7 @@ public class User {
         this(body.getUsername(), body.getPassword());
     }
 
-    static PasswordEncoder getPasswordEncoder(){
+    public static PasswordEncoder getPasswordEncoder(){
         return pwEncoder;
     }
 
