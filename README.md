@@ -24,6 +24,7 @@ Feature Branching
 
 ## Link to deployed project
 Back-End for the project [Movie-Man-FrontEnd LINK](https://github.com/RandomHat/movie-man-frontend)
+
 Deployed [LINK](https://victorious-mud-0c55f9c03.1.azurestaticapps.net/) of the Front-End part
 
 ## Who Did What
